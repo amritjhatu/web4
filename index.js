@@ -1,8 +1,12 @@
 const setup = () => {
-    let firstCard = undefined
-    let secondCard = undefined
+    let firstCard = undefined;
+    let secondCard = undefined;
 
     $(".card").on("click", function () {
+        if (firstCard && firstCard === $(this).find(".front_face")[0]) {
+            return;
+        }
+
         $(this).toggleClass("flip");
     
         if (!firstCard) {
@@ -11,7 +15,7 @@ const setup = () => {
             secondCard = $(this).find(".front_face")[0];
             console.log(firstCard, secondCard);
 
-            if (firstCard.src == secondCard.src) {
+            if (firstCard.src === secondCard.src) {
                 console.log("match");
                 $(`#${firstCard.id}`).parent().off("click");
                 $(`#${secondCard.id}`).parent().off("click");
@@ -22,7 +26,6 @@ const setup = () => {
                     $(`#${secondCard.id}`).parent().toggleClass("flip");
                 }, 1000);
             }
-            // Reset firstCard and secondCard for the next turn.
             firstCard = undefined;
             secondCard = undefined;
         }
