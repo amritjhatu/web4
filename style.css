@@ -18,7 +18,8 @@ body {
     transition: transform 1s;
     perspective: 1000px;
     transform-style: preserve-3d;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
+    margin-bottom: 1%; /* Add a margin to decrease vertical spacing */
   }
   
   
