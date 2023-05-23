@@ -4,8 +4,8 @@ body {
   
   #game_grid {
     border: 2px tomato solid;
-    width: 800px;
-    height: 800px;  /* increase the height to accommodate more rows */
+    width: 600px;
+    height: 600px;  /* increase the height to accommodate more rows */
     margin: auto;
     display: flex;
     flex-wrap: wrap;
