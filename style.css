@@ -5,14 +5,15 @@ body {
   #game_grid {
     border: 2px tomato solid;
     width: 600px;
-    height: 400px;
+    height: 600px;  /* increase the height to accommodate more rows */
     margin: auto;
     display: flex;
     flex-wrap: wrap;
   }
   
   .card {
-    width: 33.3%;
+    width: 16.6%;   /* roughly one-sixth of the width */
+    height: 33.3%;  /* one-third of the height */
     position: relative;
     transition: transform 1s;
     perspective: 1000px;
