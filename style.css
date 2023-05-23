@@ -11,7 +11,6 @@ body {
     flex-wrap: wrap;
   }
   
-  
   .card {
     width: 33.3%;
     position: relative;
@@ -19,7 +18,6 @@ body {
     perspective: 1000px;
     transform-style: preserve-3d;
   }
-  
   
   img {
     width: 100%
@@ -45,7 +43,7 @@ body {
     transform: rotateY(180deg);
   }
   
-  
   .front_face {
     transform: rotateY(180deg);
   }
+  

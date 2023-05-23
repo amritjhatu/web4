@@ -6,40 +6,33 @@ let totalPairs = 3;
 let timer = undefined;
 let timerCount = 0;
 
-// Implementation of resetGame function
-const resetGame = () => {
-  // You need to write your own implementation for this
-  // Reset variables
-  clickCount = 0;
-  matchedPairs = 0;
-  timerCount = 0;
-  // Reset game state
-  // For example, un-flip all the cards, reshuffle, etc.
-  $('.card').removeClass('flip');
-  updateStats();
-};
+$('#difficulty').change(() => {
+  const difficulty = $('#difficulty').val();
+  totalPairs = difficulty;
+  resetGame();
+});
 
-// Implementation of startTimer function
-const startTimer = () => {
-  // Starting the timer
-  timer = setInterval(() => {
-    timerCount++;
-    $('#timer').text(timerCount + " Seconds");
-  }, 1000);
-};
+$('#theme').change(() => {
+  const theme = $('#theme').val();
+  $('body').removeClass('light dark').addClass(theme);
+});
 
-// Stop timer function
-const stopTimer = () => {
-  clearInterval(timer);
-};
+$('#reveal-button').click(() => {
+  $('.card').addClass('flip');
+  $("#powerup-notification").text("Power Up Active! Cards are revealed for 3 seconds.");
+  setTimeout(() => {
+    $('.card').removeClass('flip');
+    $("#powerup-notification").text("");
+  }, 3000);
+});
 
-// Update game statistics
-const updateStats = () => {
-  $('#click-count').text(clickCount);
-  $('#matched-pairs').text(matchedPairs);
-  $('#total-pairs').text(totalPairs);
-  $('#pairs-left').text(totalPairs - matchedPairs);
-};
+$('#reset-button').click(resetGame);
+
+$('#start-button').click(() => {
+  resetGame();
+  startTimer();
+});
+
 
 const setup = () => {
   $(".card").on("click", function () {
@@ -77,29 +70,4 @@ const setup = () => {
   });
 };
 
-$(document).ready(() => {
-  $('#difficulty').change(() => {
-    const difficulty = $('#difficulty').val();
-    totalPairs = difficulty;
-    resetGame();
-  });
-
-  $('#theme').change(() => {
-    const theme = $('#theme').val();
-    $('body').removeClass('light dark').addClass(theme);
-  });
-
-  $('#reveal-button').click(() => {
-    $('.card').addClass('flip');
-    setTimeout(() => $('.card').removeClass('flip'), 3000);
-  });
-
-  $('#reset-button').click(resetGame);
-
-  $('#start-button').click(() => {
-    resetGame();
-    startTimer();
-  });
-  
-  setup();
-});
+$(document).ready(setup);
