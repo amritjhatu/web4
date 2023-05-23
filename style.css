@@ -9,21 +9,16 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* distribute items evenly with space between them */
-    align-content: flex-start; /* align items at the start of the container vertically */
   }
   
   .card {
-    width: calc(16.6% - 4px); /* adjust the width to account for the border width */
-    height: 32%; /* adjust the height to control vertical spacing */
-    margin-bottom: 2%; /* add a margin to separate the cards vertically */
+    width: 16.6%;   /* roughly one-sixth of the width */
+    height: 33.3%;  /* one-third of the height */
     position: relative;
     transition: transform 1s;
     perspective: 1000px;
     transform-style: preserve-3d;
-    box-sizing: border-box;
   }
-  
   
   img {
     width: 100%
