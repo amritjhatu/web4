@@ -13,7 +13,7 @@ body {
   
   .card {
     width: 16.6%;   /* roughly one-sixth of the width */
-    height: 33.3%;  /* one-third of the height */
+    height: 25%;  /* one-third of the height */
     position: relative;
     transition: transform 1s;
     perspective: 1000px;
