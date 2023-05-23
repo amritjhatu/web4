@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,32 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="index.js"></script>
-  <style>
-    .game-stats {
-      margin: 20px;
-      font-size: 20px;
-    }
-  </style>
 </head>
+
 <body>
+  <select id="difficulty">
+    <option value="3">Easy (3 pairs)</option>
+    <option value="6">Medium (6 pairs)</option>
+    <option value="9">Hard (9 pairs)</option>
+  </select>
+  
+  <select id="theme">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+  
+  <button id="reveal-button">Reveal Cards</button>
+  
   <button id="start-button">Start</button>
   <button id="reset-button">Reset</button>
+  
   <div class="game-stats">
     <span id="click-count">0</span> Clicks,
     <span id="matched-pairs">0</span>/<span id="total-pairs">3</span> Pairs,
     <span id="pairs-left">3</span> Pairs Left,
     <span id="timer">0</span> Seconds
   </div>
+  
   <div id="game_grid">
     <div class="card">
       <img id="img1" class="front_face" src="007.png" alt="">
