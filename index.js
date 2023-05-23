@@ -8,16 +8,15 @@ let timerCount = 0;
 
 // Implementation of resetGame function
 const resetGame = () => {
-  // You need to write your own implementation for this
-  // Reset variables
-  clickCount = 0;
-  matchedPairs = 0;
-  timerCount = 0;
-  // Reset game state
-  // For example, un-flip all the cards, reshuffle, etc.
-  $('.card').removeClass('flip');
-  updateStats();
-};
+    clickCount = 0;
+    matchedPairs = 0;
+    timerCount = 0;
+    firstCard = undefined;
+    secondCard = undefined;
+    $('.card').removeClass('flip');
+    updateStats();
+  };
+  
 
 // Implementation of startTimer function
 const startTimer = () => {
@@ -42,8 +41,8 @@ const updateStats = () => {
 };
 
 const setup = () => {
-  $(".card").on("click", function () {
-    if (secondCard) return;
+    $(".card").on("click", function () {
+        if (secondCard || $(this).hasClass("flip")) return;
     if (firstCard && $(this).find(".front_face")[0].id === firstCard.id) return;
 
     $(this).toggleClass("flip");
