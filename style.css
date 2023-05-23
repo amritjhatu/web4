@@ -12,13 +12,14 @@ body {
   }
   
   .card {
-    width: 16.6%;   /* roughly one-sixth of the width */
-    height: 33.3%;  /* one-third of the height */
+    width: 16%;
+    height: 33.3%;
     position: relative;
     transition: transform 1s;
     perspective: 1000px;
     transform-style: preserve-3d;
   }
+  
   
   img {
     width: 100%
