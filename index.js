@@ -78,11 +78,12 @@ const setup = () => {
 };
 
 $(document).ready(() => {
-  $('#difficulty').change(() => {
-    const difficulty = $('#difficulty').val();
-    totalPairs = difficulty;
-    resetGame();
-  });
+    $('#difficulty').change(() => {
+        const difficulty = $('#difficulty').val();
+        totalPairs = parseInt(difficulty);
+        resetGame();
+      });
+      
 
   $('#theme').change(() => {
     const theme = $('#theme').val();
