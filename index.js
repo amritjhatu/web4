@@ -44,7 +44,7 @@ const updateStats = () => {
 const setup = () => {
   $(".card").on("click", function () {
     if (secondCard) return;
-    if (firstCard && $(this).find(".front_face")[0].id === firstCard.id) return;
+    if (firstCard && $(this).find(".front_face img").attr("id") === firstCard.id) return;
 
     $(this).toggleClass("flip");
     clickCount++;
