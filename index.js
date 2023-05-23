@@ -6,12 +6,41 @@ let totalPairs = 3;
 let timer = undefined;
 let timerCount = 0;
 
-$('#difficulty').change(() => {
-  const difficulty = $('#difficulty').val();
-  totalPairs = difficulty;
-  resetGame();
-});
+const resetGame = () => {
+  $('.card').removeClass('flip');
+  firstCard = undefined;
+  secondCard = undefined;
+  clickCount = 0;
+  matchedPairs = 0;
+  totalPairs = Number($('#difficulty').val());
+  $('#click-count').text(0);
+  $('#matched-pairs').text(0);
+  $('#total-pairs').text(totalPairs);
+  $('#pairs-left').text(totalPairs);
+  stopTimer();
+  timerCount = 0;
+  $('#timer').text(0);
+};
 
+const startTimer = () => {
+  if (timer) clearInterval(timer);
+  timer = setInterval(() => {
+    timerCount++;
+    $('#timer').text(timerCount);
+  }, 1000);
+};
+
+const stopTimer = () => {
+  if (timer) clearInterval(timer);
+};
+
+const updateStats = () => {
+  $('#click-count').text(clickCount);
+  $('#matched-pairs').text(matchedPairs);
+  $('#pairs-left').text(totalPairs - matchedPairs);
+};
+
+$('#difficulty').change(resetGame);
 $('#theme').change(() => {
   const theme = $('#theme').val();
   $('body').removeClass('light dark').addClass(theme);
@@ -23,12 +52,10 @@ $('#reveal-button').click(() => {
 });
 
 $('#reset-button').click(resetGame);
-
 $('#start-button').click(() => {
   resetGame();
   startTimer();
 });
-
 
 const setup = () => {
   $(".card").on("click", function () {
